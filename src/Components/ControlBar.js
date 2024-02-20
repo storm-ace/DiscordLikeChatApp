@@ -6,8 +6,7 @@ import logo from "../logo.svg";
 
 const ControlBar = () => {
     return (
-        <div className='h-auto text-cyan-50 fixed bottom-0 left-[58px] w-[250px] bg-gray-900
-        p-2'>
+        <div className='relative bottom-0 h-[130px] text-cyan-50 bg-gray-900 p-2'>
             <div className="mx-2 my-2 ">
                 <div className="flex text-green-600">
                     <FaSignal size={20} className="mr-3" /><span> Connection</span>
