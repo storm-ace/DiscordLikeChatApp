@@ -1,13 +1,24 @@
+import { useRef, useEffect, useMemo } from "react";
 import logo from "../logo.svg";
 import ChatBalloon from "./ChatBalloon";
 import SendBar from "./SendBar";
 
 const UserBar = () => {
-    const chatBalloons = [];
+    const chatBalloons = useMemo(() => {
+        const balloons = [];
+        for (let index = 0; index < 50; index++) {
+          balloons.push(<ChatBalloon key={index} />);
+        }
+        return balloons;
+      }, []);
 
-    for (let index = 0; index < 50; index++) {
-        chatBalloons.push(<ChatBalloon key={index} />);
-    }
+    const chatContainerRef = useRef(null);
+
+    useEffect(() => {
+        if (chatContainerRef.current) {
+            chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+        }
+    }, [chatBalloons]);
 
     return (
         <div className="text-white w-screen">
@@ -19,7 +30,7 @@ const UserBar = () => {
                     </div>
                 </div>
 
-                <div className="flex-grow overflow-auto mb-4">
+                <div className="flex-grow overflow-auto mb-4" ref={chatContainerRef}>
                     {chatBalloons.map((balloon, index) => (
                         <div key={index} className="mb-2">
                             {balloon}
