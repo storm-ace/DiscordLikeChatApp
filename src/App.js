@@ -3,7 +3,7 @@ import UserBar from './Components/UserBar';
 
 function App() {
   return (
-    <div className="flex bg-slate-950 overflow-hidden">
+    <div className="flex bg-slate-950">
       <SideBar/>
       <UserBar/>
     </div>
