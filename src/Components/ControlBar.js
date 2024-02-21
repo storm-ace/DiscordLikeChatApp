@@ -19,15 +19,15 @@ const ControlBar = () => {
                 <hr className="h-px w-auto my-1 bg-gray-200 dark:bg-gray-700 self-center" />
             </div>
             <div className="flex gap-1">
-                <img src={logo} alt="?" width={32}/>
+                <img src={logo} alt="?" width={32} />
                 <div className="grid">
                     <span className="text-s">User name</span>
                     <span className="text-gray-500 text-xs">User status</span>
                 </div>
                 <div className="flex ml-auto gap-1">
-                <SideBarIcon icon={<FaMicrophoneAlt size={20}/>} />
-                <SideBarIcon icon={<IoHeadset size={20}/>} />
-                <SideBarIcon icon={<FaGear size={20}/>} />
+                    <SideBarIcon icon={<FaMicrophoneAlt size={20} />} />
+                    <SideBarIcon icon={<IoHeadset size={20} />} />
+                    <SideBarIcon icon={<FaGear size={20} />} />
                 </div>
             </div>
         </div>
