@@ -13,7 +13,7 @@ const SideBar = () => {
                 <SideBarIcon icon={"S"} />
                 <SideBarIcon icon={<BsPlus size={32} />} text="Add A New Server" />
             </div>
-            <LeftChatBar />
+            <LeftChatBar />\
         </div>
     );
 };
