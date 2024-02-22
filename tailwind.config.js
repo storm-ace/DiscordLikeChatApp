@@ -8,10 +8,11 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
-      colors: {
-        primary: "#202225",
-        secondary: "#5865f2",
-        gray: colors.gray
+      backgroundColor: {
+        'discord-dark': '#36393F',
+        'discord-dark-lighter': '#40444B',
+        'discord-blue': '#7289DA',
+        'discord-blue-dark': '#677BC4',
       }
     },
   },

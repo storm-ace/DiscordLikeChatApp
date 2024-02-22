@@ -3,7 +3,8 @@ import { FaFolder } from "react-icons/fa";
 import { BsPlus } from "react-icons/bs";
 import LeftChatBar from "./LeftChatBar.js"
 
-const SideBar = () => {
+const SideBar = ({ account  }) => {
+    console.log(account)
     return (
         <div className="flex">
             <div className="flex h-screen flex-col shadow-lg bg-gray-900 text-white w-16">

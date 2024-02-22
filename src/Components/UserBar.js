@@ -6,9 +6,9 @@ import SendBar from "./SendBar";
 const UserBar = () => {
     const chatBalloons = useMemo(() => {
         const balloons = [];
-        for (let index = 0; index < 50; index++) {
-            balloons.push(<ChatBalloon key={index} />);
-        }
+        // for (let index = 0; index < 50; index++) {
+        //     balloons.push(<ChatBalloon key={index} />);
+        // }
         return balloons;
     }, []);
 

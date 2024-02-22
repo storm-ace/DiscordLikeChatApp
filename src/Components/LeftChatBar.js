@@ -5,9 +5,9 @@ import ControlBar from "./ControlBar.js"
 const LeftChatBar = () => {
     const chatBalloons = useMemo(() => {
         const balloons = [];
-        for (let index = 0; index < 100; index++) {
-            balloons.push(<UserContact key={index} />);
-        }
+        // for (let index = 0; index < 100; index++) {
+        //     balloons.push(<UserContact key={index} />);
+        // }
         return balloons;
     }, []);
 
