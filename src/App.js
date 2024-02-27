@@ -7,7 +7,7 @@ import FriendsWindow from './Components/FriendsWindow';
 function App() {
   const [authenticated, setauthenticated] = useState();
 
-  const [window, setWindow] = useState("friend");
+  const [window, setWindow] = useState("friends");
 
   useEffect(() => {
     const account = JSON.parse(localStorage.getItem("authenticated"));
@@ -19,7 +19,7 @@ function App() {
     <div>
       {authenticated ? (
         <div className="flex">
-          <SideBar />
+          <SideBar window={(onchange={setWindow})}/>
           
           {window === "chat" ? (<UserBar />) : (<FriendsWindow />)}
         </div>

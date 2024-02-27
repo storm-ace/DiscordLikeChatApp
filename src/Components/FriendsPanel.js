@@ -4,7 +4,11 @@ import ControlBar from "./ControlBar.js"
 import Button from "./Button.js";
 import { IoMdPersonAdd } from "react-icons/io";
 
-const FriendsPanel = () => {
+const FriendsPanel = (window) => {
+    const FriendsWindow = () => {
+        window.window.setWindow("friends");
+    }
+
     const chatBalloons = useMemo(() => {
         const balloons = [];
         // for (let index = 0; index < 100; index++) {
@@ -18,7 +22,7 @@ const FriendsPanel = () => {
             <div className="mb-5">
                 <input type="text" placeholder="Search.." className='mx-[20px] my-3 bg-slate-900 px-1' />
                 <div>
-                    <Button styling="p-3 text-gray-400" icon={<IoMdPersonAdd  size={32} />} text={"Friends"}/>
+                    <Button listener={FriendsWindow} styling="p-3 text-gray-400" icon={<IoMdPersonAdd  size={32} />} text={"Friends"}/>
                 </div>
                 <hr className="w-auto my-1" />
             </div>

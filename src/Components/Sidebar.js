@@ -3,15 +3,19 @@ import { FaFolder } from "react-icons/fa";
 import { BsPlus } from "react-icons/bs";
 import FriendsPanel from "./FriendsPanel.js"
 
-const SideBar = ({ }) => {
+const SideBar = ({window}) => {
+    const ChangeWindow = () => {
+        window.setWindow("chat");
+    }
+
     return (
         <div className="flex">
             <div className="flex h-screen flex-col shadow-lg bg-gray-900 text-white w-16">
-                <SideBarIcon icon={<FaMessage size="28" />} text="Direct Messages" />
+                <button onClick={ChangeWindow}><SideBarIcon icon={<FaMessage size="28" />} text="Direct Messages" /></button>
                 <hr className="h-px my-1 bg-gray-200 dark:bg-gray-700 w-8 self-center" />
                 <SideBarIcon icon={<BsPlus size={32} />} text="Add A New Server" />
             </div>
-            <FriendsPanel />
+            <FriendsPanel window={window}/>
         </div>
     );
 };
