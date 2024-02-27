@@ -1,4 +1,4 @@
-import { useRef, useEffect, useMemo } from "react";
+import { useRef, useEffect, useMemo, useState } from "react";
 import logo from "../logo.svg";
 import ChatBalloon from "./ChatBalloon";
 import SendBar from "./SendBar";
@@ -42,6 +42,6 @@ const UserBar = () => {
             </div>
         </div>
     );
-};
+}
 
 export default UserBar;

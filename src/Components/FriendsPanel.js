@@ -1,8 +1,10 @@
 import { useMemo } from "react";
-import UserContact from "./UserContact";
+import UserContact from "./UserContact.js";
 import ControlBar from "./ControlBar.js"
+import Button from "./Button.js";
+import { IoMdPersonAdd } from "react-icons/io";
 
-const LeftChatBar = () => {
+const FriendsPanel = () => {
     const chatBalloons = useMemo(() => {
         const balloons = [];
         // for (let index = 0; index < 100; index++) {
@@ -15,6 +17,9 @@ const LeftChatBar = () => {
         <div className="bg-slate-800 flex flex-col h-full overflow-auto max-h-screen">
             <div className="mb-5">
                 <input type="text" placeholder="Search.." className='mx-[20px] my-3 bg-slate-900 px-1' />
+                <div>
+                    <Button styling="p-3 text-gray-400" icon={<IoMdPersonAdd  size={32} />} text={"Friends"}/>
+                </div>
                 <hr className="w-auto my-1" />
             </div>
 
@@ -33,4 +38,4 @@ const LeftChatBar = () => {
     );
 }
 
-export default LeftChatBar;
+export default FriendsPanel;
