@@ -16,7 +16,8 @@ namespace DiscordLikeBackend
 
 			var builder = WebApplication.CreateBuilder(args);
 
-			builder.Services.AddDbContext<BackendContext>(options => options.UseMySQL("server=localhost;database=discord_lite;user=root;"));
+			builder.Services.AddDbContext<BackendContext>(options => 
+			options.UseMySQL("server=localhost;database=discord_lite;user=root;"));
 			builder.Services.AddLogging(builder => builder.AddConsole());
 			builder.Services.AddControllers();
 			builder.Services.AddEndpointsApiExplorer();
