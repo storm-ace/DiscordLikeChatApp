@@ -18,4 +18,8 @@
     .user-tooltip {
         @apply absolute w-auto p-2 m-2 min-w-max bottom-5 rounded-md shadow-sm text-white bg-gray-950 text-xs font-bold transition-all duration-100 scale-0 origin-left;
     }
+
+    .error-panel {
+        @apply text-white font-bold my-5 bg-red-500 p-3 rounded-md animate-pulse transition;
+    }
 }

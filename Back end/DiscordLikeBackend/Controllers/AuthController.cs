@@ -44,7 +44,7 @@ namespace DiscordLikeBackend.Controllers
 		}
 
 		[HttpPost("register")]
-		public IActionResult Register([FromBody] string username, string password)
+		public IActionResult Register(string username, string password)
 		{
 			if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(username))
 			{
@@ -66,6 +66,7 @@ namespace DiscordLikeBackend.Controllers
 			UserModel user = new()
 			{
 				Snowflake = snowflakeId,
+				Username = username,
 				Password = hashedPassword,
 				State = UserState.Online
 			};
