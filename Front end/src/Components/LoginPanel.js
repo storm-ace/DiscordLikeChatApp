@@ -4,7 +4,7 @@ const LoginPanel = (props) => {
     const [username, setusername] = useState("");
     const [password, setpassword] = useState("");
     const [isErrorVisible, setIsErrorVisible] = useState("hidden");
-    const [iserrorText, setIsErrorText] = useState("");
+    const [iserrorText, setIsErrorText] = useState("Could not connect the server!");
 
     const handleSubmit = (e) => {
         e.preventDefault();
