@@ -1,4 +1,6 @@
-﻿namespace DiscordLikeBackend.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DiscordLikeBackend.Models
 {
 	public enum UserState
 	{
@@ -11,24 +13,20 @@
 	public class UserModel
 	{
 		/// <summary>
-		/// User ID.
+		/// Snowflake identifier.
 		/// </summary>
-		public int Id { get; set; }
+		[Key]
+		public long Snowflake { get; set; }
 
 		/// <summary>
 		/// User's username.
 		/// </summary>
-		public required string Username { get; set; }
+		public string? Username { get; set; }
 
 		/// <summary>
 		/// User's password.
 		/// </summary>
-		public required string Password { get; set; }
-
-		/// <summary>
-		/// Snowflake identifier.
-		/// </summary>
-		public long Snowflake { get; set; }
+		public string? Password { get; set; }
 
 		/// <summary>
 		/// List of friend user IDs.
@@ -44,5 +42,5 @@
 		/// User state (Online, Busy, Away, Offline).
 		/// </summary>
 		public UserState State { get; set; } = UserState.Offline;
-	}
+    }
 }

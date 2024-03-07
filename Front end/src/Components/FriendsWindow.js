@@ -4,7 +4,7 @@ import Button from "./Button";
 const FriendsWindow = () => {
     return (
         <div className="text-white min-w-1 w-screen flex">
-            <div className="flex flex-col h-screen bg-gray-900 p-4">
+            <div className="flex flex-col h-screen bg-gray-900 p-4 w-[75%]">
                 <div className="my-3.5">
                     <div className="grid mx-5 gap-1 text-sm">
                         <div className="flex items-center">

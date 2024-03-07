@@ -72,7 +72,6 @@ namespace DiscordLikeBackend.Utils
 
 		public static async Task StressTestSnowflakeGenerationAsync()
 		{
-			SnowflakeGenerator snowflakeGenerator = new SnowflakeGenerator();
 			List<Task<long>> snowflakeTasks = new List<Task<long>>();
 			int numberOfSnowflakesToGenerate = 100000; // You can adjust this number
 
@@ -80,7 +79,7 @@ namespace DiscordLikeBackend.Utils
 
 			for (int i = 0; i < numberOfSnowflakesToGenerate; i++)
 			{
-				snowflakeTasks.Add(GenerateSnowflakeAsync(snowflakeGenerator));
+				snowflakeTasks.Add(GenerateSnowflakeAsync(SnowflakeType.Chat));
 			}
 
 			// Wait for all tasks to complete
@@ -99,9 +98,9 @@ namespace DiscordLikeBackend.Utils
 			}
 		}
 
-		public static async Task<long> GenerateSnowflakeAsync(SnowflakeGenerator snowflakeGenerator)
+		public static async Task<long> GenerateSnowflakeAsync(SnowflakeType type)
 		{
-			return await Task.Run(() => GenerateSnowflake(SnowflakeType.Chat));
+			return await Task.Run(() => GenerateSnowflake(type));
 		}
 	}
 

@@ -16,9 +16,6 @@ namespace DiscordLikeBackend.Controllers
 	{
 		private readonly BackendContext _context;
 		private readonly ILogger<AuthController> _logger;
-		private static readonly object lockObject = new object();
-
-		private readonly string passwordHash = BCrypt.Net.BCrypt.HashPassword("Pa$$w0rd");
 
 		public AuthController(BackendContext context, ILogger<AuthController> logger)
 		{
@@ -34,7 +31,7 @@ namespace DiscordLikeBackend.Controllers
 				return BadRequest("Email or password is empty");
 
 			// Check if the user exists in the database
-			UserModel userInDB = _context.Users.Where(userDB => userDB.Username == user.Username).FirstOrDefault();
+			UserModel? userInDB = _context.Users.Where(userDB => userDB.Username == user.Username).SingleOrDefault();
 
 			// Check if the user is valid
 			if (userInDB == null || !BCrypt.Net.BCrypt.Verify(user.Password, userInDB.Password))
@@ -47,15 +44,15 @@ namespace DiscordLikeBackend.Controllers
 		}
 
 		[HttpPost("register")]
-		public IActionResult Register([FromBody]UserModel user)
+		public IActionResult Register([FromBody] string username, string password)
 		{
-			if (string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Username))
+			if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(username))
 			{
 				return BadRequest("Username or password is empty");
 			}
 
 			// Check if the email is already registered
-			if (_context.Users.Any(u => u.Username == user.Username))
+			if (_context.Users.Any(u => u.Username == username))
 			{
 				return Conflict("Username is already registered");
 			}
@@ -64,15 +61,20 @@ namespace DiscordLikeBackend.Controllers
 			long snowflakeId = SnowflakeGenerator.GenerateSnowflake(SnowflakeType.Account);
 
 			// Hash the password before storing it
-			string hashedPassword = BCrypt.Net.BCrypt.HashPassword(user.Password);
+			string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+
+			UserModel user = new()
+			{
+				Snowflake = snowflakeId,
+				Password = hashedPassword,
+				State = UserState.Online
+			};
 
 			// Create a new user
 			user.Snowflake = snowflakeId;
 
 			// Generate a new token
 			var newToken = JwtService.GenerateToken(user);
-
-			user.Password = hashedPassword;
 
 			// Add the user to the database
 			_context.Users.Add(user);
@@ -93,7 +95,7 @@ namespace DiscordLikeBackend.Controllers
 				var jsonToken = handler.ReadToken(token) as JwtSecurityToken;
 
 				// Access token claims (long)
-				var userId = jsonToken?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
+				var userId = jsonToken?.Claims.SingleOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
 
 				return Ok(new { message = $"Successfully authenticated user {userId}", token });
 			}
@@ -115,11 +117,9 @@ namespace DiscordLikeBackend.Controllers
 
 			var snowflakeDetails = new
 			{
-				Snowflake = snowflake,
 				Timestamp = timestamp,
 				FormattedDateTime = formattedDateTime,
-				SnowflakeType = snowflakeType.ToString(),
-				Sequence = sequence
+				SnowflakeType = snowflakeType.ToString()
 			};
 
 			return Ok(snowflakeDetails);

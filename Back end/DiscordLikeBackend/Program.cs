@@ -57,11 +57,9 @@ namespace DiscordLikeBackend
 				app.UseSwagger();
 				app.UseSwaggerUI();
 
-				using (var scope = app.Services.CreateScope())
-				{
-					var db = scope.ServiceProvider.GetRequiredService<BackendContext>();
-					db.Database.Migrate();
-				}
+				using var scope = app.Services.CreateScope();
+				BackendContext db = scope.ServiceProvider.GetRequiredService<BackendContext>();
+				db.Database.Migrate();
 			}
 
 			app.UseHttpsRedirection();

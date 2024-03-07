@@ -158,8 +158,6 @@ C:\Users\Gebruiker\Documents\Visual Code\discord\DiscordLikeBackend\DiscordLikeB
 C:\Users\Gebruiker\Documents\DiscordLikeChatApp\Back end\DiscordLikeBackend\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\Gebruiker\Documents\DiscordLikeChatApp\Back end\DiscordLikeBackend\bin\Debug\net8.0\appsettings.json
 C:\Users\Gebruiker\Documents\DiscordLikeChatApp\Back end\DiscordLikeBackend\bin\Debug\net8.0\libman.json
-C:\Users\Gebruiker\Documents\DiscordLikeChatApp\Back end\DiscordLikeBackend\bin\Debug\net8.0\Front end\package-lock.json
-C:\Users\Gebruiker\Documents\DiscordLikeChatApp\Back end\DiscordLikeBackend\bin\Debug\net8.0\Front end\package.json
 C:\Users\Gebruiker\Documents\DiscordLikeChatApp\Back end\DiscordLikeBackend\bin\Debug\net8.0\DiscordLikeBackend.exe
 C:\Users\Gebruiker\Documents\DiscordLikeChatApp\Back end\DiscordLikeBackend\bin\Debug\net8.0\DiscordLikeBackend.deps.json
 C:\Users\Gebruiker\Documents\DiscordLikeChatApp\Back end\DiscordLikeBackend\bin\Debug\net8.0\DiscordLikeBackend.runtimeconfig.json

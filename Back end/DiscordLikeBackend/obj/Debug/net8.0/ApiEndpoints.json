@@ -56,9 +56,56 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "user",
-        "Type": "DiscordLikeBackend.Models.UserModel",
+        "Name": "username",
+        "Type": "System.String",
         "IsRequired": true
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DiscordLikeBackend.Controllers.ChatController",
+    "Method": "GetChat",
+    "RelativePath": "api/Chat",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userSnowFlake",
+        "Type": "System.Int64",
+        "IsRequired": false
+      },
+      {
+        "Name": "chatSnowFlake",
+        "Type": "System.Int64",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DiscordLikeBackend.Controllers.ChatController",
+    "Method": "PostTestChat",
+    "RelativePath": "api/Chat/PostFakeChat",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userSnowFlake",
+        "Type": "System.Int64",
+        "IsRequired": false
+      },
+      {
+        "Name": "message",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
