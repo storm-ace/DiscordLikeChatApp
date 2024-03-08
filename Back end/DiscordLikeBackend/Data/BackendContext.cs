@@ -12,6 +12,6 @@ namespace DiscordLikeBackend.Data
 
 		public DbSet<UserModel> Users { get; set; }
 		public DbSet<ChatModel> ChatServices { get; set; }
-		public DbSet<Message> ChatMessages { get; set; }
+		public DbSet<MessageModel> ChatMessages { get; set; }
 	}
 }

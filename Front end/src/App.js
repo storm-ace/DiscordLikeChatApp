@@ -28,7 +28,6 @@ const App = () => {
       let sessionData = JSON.parse(localStorage.getItem("authenticated"));
       if (sessionData) {
         sessionData = sessionData[0];
-        console.log(sessionData);
         // Construct the URL with the token as a query parameter
         const url = `https://localhost:7029/api/Auth/loginWithToken?token=${sessionData.token}`;
 
@@ -44,8 +43,9 @@ const App = () => {
             // Handle the response data (success, token, etc.)
             console.log('Successful response:', data);
             const token = data.token;
-            const updatedAccount = [{ username: "", token: token }];
-            setAuthenticated(updatedAccount);
+            const updatedAccount = JSON.parse(localStorage.getItem("authenticated"));
+            updatedAccount.token = token;
+            setAuthenticated(JSON.stringify(updatedAccount));
             localStorage.setItem("authenticated", JSON.stringify(updatedAccount));
           })
           .catch(error => {

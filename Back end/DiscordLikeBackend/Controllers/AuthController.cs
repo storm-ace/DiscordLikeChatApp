@@ -89,21 +89,11 @@ namespace DiscordLikeBackend.Controllers
 		{
 			if (string.IsNullOrEmpty(token)) return BadRequest("Token is missing");
 
-			try
-			{
-				// Decode the token
-				var handler = new JwtSecurityTokenHandler();
-				var jsonToken = handler.ReadToken(token) as JwtSecurityToken;
+			var checkToken = JwtService.CheckToken(token);
 
-				// Access token claims (long)
-				var userId = jsonToken?.Claims.SingleOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
+			if (!checkToken.success) return BadRequest("Invalid token!");
 
-				return Ok(new { message = $"Successfully authenticated user {userId}", token });
-			}
-			catch (Exception ex)
-			{
-				return BadRequest($"Invalid token: {ex.Message}");
-			}
+			return Ok(checkToken);
 		}
 
 		[HttpGet("{snowflake}")]

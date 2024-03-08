@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Gebruiker\\Documents\\DiscordLikeChatApp\\Back end\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{597F85EC-0BA6-46FD-85DA-74123002929F}|DiscordLikeBackend\\DiscordLikeBackend.csproj|c:\\users\\gebruiker\\documents\\discordlikechatapp\\back end\\discordlikebackend\\controllers\\friendscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{597F85EC-0BA6-46FD-85DA-74123002929F}|DiscordLikeBackend\\DiscordLikeBackend.csproj|solutionrelative:discordlikebackend\\controllers\\friendscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{597F85EC-0BA6-46FD-85DA-74123002929F}|DiscordLikeBackend\\DiscordLikeBackend.csproj|c:\\users\\gebruiker\\documents\\discordlikechatapp\\back end\\discordlikebackend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{597F85EC-0BA6-46FD-85DA-74123002929F}|DiscordLikeBackend\\DiscordLikeBackend.csproj|solutionrelative:discordlikebackend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{597F85EC-0BA6-46FD-85DA-74123002929F}|DiscordLikeBackend\\DiscordLikeBackend.csproj|c:\\users\\gebruiker\\documents\\discordlikechatapp\\back end\\discordlikebackend\\controllers\\chatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{597F85EC-0BA6-46FD-85DA-74123002929F}|DiscordLikeBackend\\DiscordLikeBackend.csproj|solutionrelative:discordlikebackend\\controllers\\chatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{597F85EC-0BA6-46FD-85DA-74123002929F}|DiscordLikeBackend\\DiscordLikeBackend.csproj|c:\\users\\gebruiker\\documents\\discordlikechatapp\\back end\\discordlikebackend\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{597F85EC-0BA6-46FD-85DA-74123002929F}|DiscordLikeBackend\\DiscordLikeBackend.csproj|solutionrelative:discordlikebackend\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{597F85EC-0BA6-46FD-85DA-74123002929F}|DiscordLikeBackend\\DiscordLikeBackend.csproj|c:\\users\\gebruiker\\documents\\discordlikechatapp\\back end\\discordlikebackend\\utils\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{597F85EC-0BA6-46FD-85DA-74123002929F}|DiscordLikeBackend\\DiscordLikeBackend.csproj|solutionrelative:discordlikebackend\\utils\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{597F85EC-0BA6-46FD-85DA-74123002929F}|DiscordLikeBackend\\DiscordLikeBackend.csproj|c:\\users\\gebruiker\\documents\\discordlikechatapp\\back end\\discordlikebackend\\models\\friendrequestmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{597F85EC-0BA6-46FD-85DA-74123002929F}|DiscordLikeBackend\\DiscordLikeBackend.csproj|solutionrelative:discordlikebackend\\models\\friendrequestmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +34,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
+              "Title": "JwtService.cs",
+              "DocumentMoniker": "C:\\Users\\Gebruiker\\Documents\\DiscordLikeChatApp\\Back end\\DiscordLikeBackend\\Utils\\JwtService.cs",
+              "RelativeDocumentMoniker": "DiscordLikeBackend\\Utils\\JwtService.cs",
+              "ToolTip": "C:\\Users\\Gebruiker\\Documents\\DiscordLikeChatApp\\Back end\\DiscordLikeBackend\\Utils\\JwtService.cs",
+              "RelativeToolTip": "DiscordLikeBackend\\Utils\\JwtService.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAwwC4AAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-08T22:34:09.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserModel.cs",
+              "DocumentMoniker": "C:\\Users\\Gebruiker\\Documents\\DiscordLikeChatApp\\Back end\\DiscordLikeBackend\\Models\\UserModel.cs",
+              "RelativeDocumentMoniker": "DiscordLikeBackend\\Models\\UserModel.cs",
+              "ToolTip": "C:\\Users\\Gebruiker\\Documents\\DiscordLikeChatApp\\Back end\\DiscordLikeBackend\\Models\\UserModel.cs",
+              "RelativeToolTip": "DiscordLikeBackend\\Models\\UserModel.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAwAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-08T22:21:09.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ChatController.cs",
+              "DocumentMoniker": "C:\\Users\\Gebruiker\\Documents\\DiscordLikeChatApp\\Back end\\DiscordLikeBackend\\Controllers\\ChatController.cs",
+              "RelativeDocumentMoniker": "DiscordLikeBackend\\Controllers\\ChatController.cs",
+              "ToolTip": "C:\\Users\\Gebruiker\\Documents\\DiscordLikeChatApp\\Back end\\DiscordLikeBackend\\Controllers\\ChatController.cs",
+              "RelativeToolTip": "DiscordLikeBackend\\Controllers\\ChatController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-08T22:23:02.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\Gebruiker\\Documents\\DiscordLikeChatApp\\Back end\\DiscordLikeBackend\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "DiscordLikeBackend\\Controllers\\AuthController.cs",
               "ToolTip": "C:\\Users\\Gebruiker\\Documents\\DiscordLikeChatApp\\Back end\\DiscordLikeBackend\\Controllers\\AuthController.cs",
               "RelativeToolTip": "DiscordLikeBackend\\Controllers\\AuthController.cs",
-              "ViewState": "AQIAADwAAAAAAAAAAAAAAEQAAAAYAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAAFsAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-07T15:00:34.204Z",
+              "WhenOpened": "2024-03-08T22:21:02.857Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FriendsController.cs",
+              "DocumentMoniker": "C:\\Users\\Gebruiker\\Documents\\DiscordLikeChatApp\\Back end\\DiscordLikeBackend\\Controllers\\FriendsController.cs",
+              "RelativeDocumentMoniker": "DiscordLikeBackend\\Controllers\\FriendsController.cs",
+              "ToolTip": "C:\\Users\\Gebruiker\\Documents\\DiscordLikeChatApp\\Back end\\DiscordLikeBackend\\Controllers\\FriendsController.cs",
+              "RelativeToolTip": "DiscordLikeBackend\\Controllers\\FriendsController.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAAAC4AAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-08T22:20:30.525Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FriendRequestModel.cs",
+              "DocumentMoniker": "C:\\Users\\Gebruiker\\Documents\\DiscordLikeChatApp\\Back end\\DiscordLikeBackend\\Models\\FriendRequestModel.cs",
+              "RelativeDocumentMoniker": "DiscordLikeBackend\\Models\\FriendRequestModel.cs",
+              "ToolTip": "C:\\Users\\Gebruiker\\Documents\\DiscordLikeChatApp\\Back end\\DiscordLikeBackend\\Models\\FriendRequestModel.cs",
+              "RelativeToolTip": "DiscordLikeBackend\\Models\\FriendRequestModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-08T22:12:37.404Z",
               "EditorCaption": ""
             }
           ]

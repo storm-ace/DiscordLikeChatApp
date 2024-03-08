@@ -1,8 +1,9 @@
 ﻿using DiscordLikeBackend.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Security.Cryptography;
 using System.Text;
 
 namespace DiscordLikeBackend.Utils
@@ -18,7 +19,7 @@ namespace DiscordLikeBackend.Utils
 			{
 				Subject = new ClaimsIdentity(new[]
 				{
-					new Claim(ClaimTypes.Name, user.Snowflake.ToString())
+					new Claim(ClaimTypes.Thumbprint, user.Snowflake.ToString())
 				}),
 				Expires = DateTime.UtcNow.AddHours(1),
 				SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256)
@@ -27,5 +28,40 @@ namespace DiscordLikeBackend.Utils
 			var token = tokenHandler.CreateToken(tokenDescriptor);
 			return tokenHandler.WriteToken(token);
 		}
+
+		public static TokenResult CheckToken(string token)
+		{
+			try
+			{
+				// Decode the token
+				var handler = new JwtSecurityTokenHandler();
+				var jsonToken = handler.ReadToken(token) as JwtSecurityToken;
+
+				// Access token claims (long)
+				long.TryParse(jsonToken.Claims.First().Value, out long result);
+
+				return new TokenResult() 
+				{
+					success = true,
+					token = token,
+					snowflake = result
+				};
+			}
+			catch (Exception)
+			{
+				return new TokenResult {
+					success = false,
+					error = "Invalid user ID in the token."
+				};
+			}
+		}
+	}
+
+	public class TokenResult
+	{
+		public bool success = false;
+		public string token { get; set; }
+		public long snowflake { get; set; }
+		public string error { get; set; }
 	}
 }

@@ -1,7 +1,66 @@
 import { FaUserFriends } from "react-icons/fa";
 import Button from "./Button";
+import { useState } from "react";
+import { IoClose } from "react-icons/io5";
 
 const FriendsWindow = () => {
+    const [isErrorVisible, setIsErrorVisible] = useState("hidden");
+    const [iserrorText, setIsErrorText] = useState("User was not found");
+    const [friendName, setIsFriendName] = useState();
+    const [friendRequestCounter, SetFriendRequestCounter] = useState('');
+
+    const user = JSON.parse(localStorage.getItem("authenticated"))[0];
+
+    const friendRequests = [];
+
+    const closeError = () => {
+        setIsErrorVisible("hidden");
+    }
+
+    const SendFriendRequest = async () => {
+        if (friendName === undefined) {
+            setIsErrorVisible("visible");
+            setIsErrorText("Field cannot be empty.");
+            return;
+        }
+
+        const response = await fetch("https://localhost:7029/api/Friends/SendFriendRequest", {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                Token: user.token,
+                friendName
+            }),
+        });
+
+        try {
+            const data = await response.json();
+
+            if (response.ok) {
+                document.getElementById("friendInputField").value = "";
+                SetFriendRequestCounter(data.friendRequests);
+            } else {
+                setIsErrorVisible("visible");
+                setIsErrorText(data || "An error occurred during the friend request.");
+            }
+        } catch (error) {
+            console.error('Error parsing JSON response:', error);
+            setIsErrorVisible("visible");
+            setIsErrorText("An unexpected error occurred.");
+        }
+    }
+
+    const updateInput = (value) => {
+        setIsFriendName(value);
+
+        if (isErrorVisible === "visible") {
+            setIsErrorVisible("hidden");
+        }
+    }
+
     return (
         <div className="text-white min-w-1 w-screen flex">
             <div className="flex flex-col h-screen bg-gray-900 p-4 w-[75%]">
@@ -13,7 +72,7 @@ const FriendsWindow = () => {
                             <div className="border-r border-gray-700 mx-2 h-4"></div>
                             <Button styling="p-1 text-gray-400" text={"Online"} />
                             <Button styling="p-1 text-gray-400" text={"All"} />
-                            <Button styling="p-1 text-gray-400" text={"In Request"} />
+                            <Button styling="p-1 text-gray-400" text={`In Request ${friendRequestCounter.length > 0 ? friendRequestCounter.length : ''}`} />
                             <Button styling="p-1 text-gray-400" text={"Blocked"} />
                             <Button styling="p-1 rounded-sm text-white bg-green-700 font-bold" text={"Add A Friend"} />
                         </div>
@@ -26,13 +85,19 @@ const FriendsWindow = () => {
                                     type="text"
                                     placeholder="user#0000"
                                     className="my-3 bg-slate-950 px-1 rounded-md p-3 w-full"
+                                    id="friendInputField"
+                                    onChange={(e) => updateInput(e.target.value)}
                                 />
                                 <button
-                                    className="absolute right-3 transform -translate-y-1/10 bg-blue-500 text-white px-4 py-1 rounded-md"
-                                    onClick={() => console.log('Send friend request')}
+                                    disabled={false} className="absolute right-3 transform -translate-y-1/10 bg-blue-500 text-white px-4 py-1 rounded-md"
+                                    onClick={SendFriendRequest}
                                 >
                                     Send Friend Request
                                 </button>
+                            </div>
+                            <div className={`error-panel ${isErrorVisible} w-56`}>
+                                <p>{iserrorText}</p>
+                                <button onClick={closeError}><IoClose className="relative text-black cursor-pointer m-1" /></button>
                             </div>
                         </div>
                     </div>

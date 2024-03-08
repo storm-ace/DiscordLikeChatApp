@@ -12,7 +12,7 @@
     }
 
     .user-icon {
-        @apply relative flex items-center justify-center h-6 w-6 mx-auto text-gray-600 hover:bg-gray-400 hover:text-white rounded-3xl hover:rounded-xl transition-all duration-300 ease-linear cursor-pointer;
+        @apply relative flex items-center justify-center h-6 w-6 mx-auto text-gray-600 hover:bg-gray-400 hover:text-white hover:z-50 rounded-3xl hover:rounded-xl transition-all duration-300 ease-linear cursor-pointer;
     }
 
     .user-tooltip {
@@ -20,6 +20,6 @@
     }
 
     .error-panel {
-        @apply text-white font-bold my-5 bg-red-500 p-3 rounded-md animate-pulse transition;
+        @apply text-white font-bold my-5 bg-red-500 p-3 rounded-md animate-pulse transition flex;
     }
 }

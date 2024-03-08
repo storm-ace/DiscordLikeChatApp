@@ -49,7 +49,7 @@ namespace DiscordLikeBackend.Controllers
 				SnowflakeGenerator.GenerateSnowflakeAsync(SnowflakeType.Account).Result
 			};
 
-			var listMessage = new List<Message>()
+			var listMessage = new List<MessageModel>()
 			{
 				new()
 				{

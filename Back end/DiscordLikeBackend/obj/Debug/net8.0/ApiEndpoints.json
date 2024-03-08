@@ -58,7 +58,7 @@
       {
         "Name": "username",
         "Type": "System.String",
-        "IsRequired": true
+        "IsRequired": false
       },
       {
         "Name": "password",
@@ -106,6 +106,22 @@
         "Name": "message",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DiscordLikeBackend.Controllers.FriendsController",
+    "Method": "SendFriendRequest",
+    "RelativePath": "api/Friends/SendFriendRequest",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "DiscordLikeBackend.Models.FriendRequestModel",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
