@@ -3,6 +3,7 @@ import SideBar from './Components/Sidebar';
 import UserBar from './Components/UserBar';
 import FriendsWindow from './Components/Friends/FriendsWindow';
 import LoginPanel from './Components/LoginPanel';
+import { GetUserToken } from './hooks/GetUserToken';
 
 const App = () => {
   const [authenticated, setAuthenticated] = useState("");
@@ -19,44 +20,17 @@ const App = () => {
   };
 
   const components = {
-    chat: <UserBar window={handleChangeAuth}/>,
-    friends: <FriendsWindow window={handleChangeWindow}/>,
+    chat: <UserBar window={handleChangeAuth} />,
+    friends: <FriendsWindow window={handleChangeWindow} />,
   };
 
   useEffect(() => {
-    try {
-      let sessionData = JSON.parse(localStorage.getItem("authenticated"));
-      if (sessionData) {
-        sessionData = sessionData[0];
-        // Construct the URL with the token as a query parameter
-        const url = `https://localhost:7029/api/Auth/loginWithToken?token=${sessionData.token}`;
+    if (JSON.parse(localStorage.getItem("authenticated"))) {
+      GetUserToken().then(data => {
+        if (data === null) return;
 
-        // Make the GET request
-        fetch(url)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-          })
-          .then(data => {
-            // Handle the response data (success, token, etc.)
-            console.log('Successful response:', data);
-            const token = data.token;
-            const updatedAccount = JSON.parse(localStorage.getItem("authenticated"));
-            updatedAccount.token = token;
-            setAuthenticated(JSON.stringify(updatedAccount));
-            localStorage.setItem("authenticated", JSON.stringify(updatedAccount));
-          })
-          .catch(error => {
-            // Handle errors
-            console.error('Error:', error);
-            localStorage.removeItem("authenticated");
-          });
-      }
-    } catch (_ex) {
-      console.log(_ex);
-      localStorage.removeItem("authenticated");
+        setAuthenticated(data);
+      });
     }
   }, [authenticated.token]);
 
@@ -73,7 +47,7 @@ const App = () => {
           {components[window]}
         </div>
       </div>
-    );    
+    );
   }
 }
 
