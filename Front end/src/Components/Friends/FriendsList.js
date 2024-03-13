@@ -3,7 +3,7 @@ import { IoClose } from "react-icons/io5";
 import FriendsBar from "./FriendsBar";
 import UserContact from "../UserContact";
 
-const FriendsList = (props) => {
+const FriendsList = (window) => {
     const [friendName, setIsFriendName] = useState();
     const [isInputFieldActive, DisableInputField] = useState(false);
     const [friends, setFriends] = useState([]);
@@ -25,7 +25,8 @@ const FriendsList = (props) => {
                     .then(data => {
                         const friendsData = JSON.parse(data.friends);
                         const friends = friendsData.map(friend => (
-                            <FriendsBar 
+                            <FriendsBar
+                            changeWindow={window}
                             username={friend.Username}
                             state={friend.State}
                             />
@@ -48,7 +49,6 @@ const FriendsList = (props) => {
 
     return (
         <div className="my-1">
-
             <hr className="w-auto border-gray-950" />
 
             <div className="relative flex items-center">

@@ -8,19 +8,19 @@ const App = () => {
   const [authenticated, setAuthenticated] = useState("");
   const [window, setWindow] = useState("chat");
 
-  const components = {
-    chat: <UserBar />,
-    friends: <FriendsWindow />,
+  const handleChangeAuth = (newAuthenticated) => {
+    setAuthenticated((prevAuthenticated) => {
+      return { ...prevAuthenticated, ...newAuthenticated }
+    });
   };
 
   const handleChangeWindow = (newWindow) => {
     setWindow(newWindow);
   };
 
-  const handleChangeAuth = (newAuthenticated) => {
-    setAuthenticated((prevAuthenticated) => {
-      return { ...prevAuthenticated, ...newAuthenticated }
-    });
+  const components = {
+    chat: <UserBar window={handleChangeAuth}/>,
+    friends: <FriendsWindow window={handleChangeWindow}/>,
   };
 
   useEffect(() => {

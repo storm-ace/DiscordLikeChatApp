@@ -5,13 +5,13 @@ import AddFriend from "./AddFriend";
 import FriendsList from "./FriendsList";
 import UserContact from "../UserContact";
 
-const FriendsWindow = () => {
+const FriendsWindow = (window) => {
     const [friendRequestCounter, SetFriendRequestCounter] = useState('');
-    const [window, setWindow] = useState("onlineFriends");
+    const [isWindow, setWindow] = useState("onlineFriends");
 
     const components = {
         addFriend: <AddFriend SetFriendRequestCounter={SetFriendRequestCounter} />,
-        onlineFriends: <FriendsList />,
+        onlineFriends: <FriendsList window={window}/>,
     };
 
     return (
@@ -33,10 +33,10 @@ const FriendsWindow = () => {
                                 styling="p-1 text-gray-400" text={"Blocked"} />
                             <Button buttonStyling="rounded m-3 relative bg-green-500 disabled:bg-gray-900"
                                 styling="p-1 rounded-sm font-bold" text={"Add A Friend"} listener={e => setWindow("addFriend")}
-                                isDisabled={window === "addFriend"} />
+                                isDisabled={isWindow === "addFriend"} />
                         </div>
 
-                        {components[window]}
+                        {components[isWindow]}
                     </div>
                 </div>
             </div>

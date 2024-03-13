@@ -36,6 +36,7 @@ bin/
 # Visual Studio Code
 .vscode/
 *.code-workspace
+.vs
 
 # User-specific files
 *.rsuser

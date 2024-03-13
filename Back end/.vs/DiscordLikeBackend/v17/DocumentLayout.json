@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{597F85EC-0BA6-46FD-85DA-74123002929F}|DiscordLikeBackend\\DiscordLikeBackend.csproj|solutionrelative:discordlikebackend\\controllers\\friendscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{597F85EC-0BA6-46FD-85DA-74123002929F}|DiscordLikeBackend\\DiscordLikeBackend.csproj|c:\\users\\gebruiker\\documents\\discordlikechatapp\\back end\\discordlikebackend\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{597F85EC-0BA6-46FD-85DA-74123002929F}|DiscordLikeBackend\\DiscordLikeBackend.csproj|C:\\Users\\Gebruiker\\Documents\\DiscordLikeChatApp\\Back end\\discordlikebackend\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{597F85EC-0BA6-46FD-85DA-74123002929F}|DiscordLikeBackend\\DiscordLikeBackend.csproj|solutionrelative:discordlikebackend\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -52,8 +52,7 @@
               "RelativeToolTip": "DiscordLikeBackend\\Models\\UserModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-13T08:19:48.514Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-13T08:19:48.514Z"
             },
             {
               "$type": "Document",
@@ -65,8 +64,7 @@
               "RelativeToolTip": "DiscordLikeBackend\\Models\\FriendResponse.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-11T12:57:44.174Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-11T12:57:44.174Z"
             },
             {
               "$type": "Document",

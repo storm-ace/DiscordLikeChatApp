@@ -1,8 +1,12 @@
 import logo from "../../logo.svg";
 
-const FriendsBar = ({username, state}) => {
+const FriendsBar = ({changeWindow, username, state}) => {
+const windowToChat = () => {
+    changeWindow.window.window("chat");
+}
+    
     return (
-        <div className="">
+        <div className="hover:bg-gray-950 hover:cursor-pointer" onMouseDown={windowToChat}>
             <hr className="w-auto border-gray-700" />
 
             <div className="my-3 flex">
