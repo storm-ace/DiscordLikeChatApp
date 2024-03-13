@@ -26,7 +26,7 @@ const UserBar = () => {
                     
                 </div>
 
-                <div className="flex-shrink-0">
+                <div className="flex">
                     <SendBar />
                 </div>
             </div>
