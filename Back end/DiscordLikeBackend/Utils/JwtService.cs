@@ -39,12 +39,13 @@ namespace DiscordLikeBackend.Utils
 
 				// Access token claims (long)
 				_ = long.TryParse(jsonToken.Claims.First().Value, out long result);
-
+				
 				return new TokenResult() 
 				{
 					success = true,
 					token = token,
-					snowflake = result
+					snowflake = result,
+					expires = (long)jsonToken.Payload.Expiration
 				};
 			}
 			catch (Exception)
@@ -62,6 +63,7 @@ namespace DiscordLikeBackend.Utils
 		public bool success = false;
 		public string token { get; set; }
 		public long snowflake { get; set; }
+		public long expires { get; set; }
 		public string error { get; set; }
 	}
 }
