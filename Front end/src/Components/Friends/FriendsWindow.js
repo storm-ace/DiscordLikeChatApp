@@ -1,18 +1,27 @@
 import { FaUserFriends } from "react-icons/fa";
 import Button from "../Button";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AddFriend from "./AddFriend";
 import FriendsList from "./FriendsList";
 import UserContact from "../UserContact";
 
 const FriendsWindow = (window) => {
-    const [friendRequestCounter, SetFriendRequestCounter] = useState('');
+    const friendsRequesterCount = useRef("5");
+
+    const [isFriendRequest, setFriendReqest] = useState("");
     const [isWindow, setWindow] = useState("onlineFriends");
 
     const components = {
-        addFriend: <AddFriend SetFriendRequestCounter={SetFriendRequestCounter} />,
+        addFriend: <AddFriend SetFriendRequestCounter={friendsRequesterCount} />,
         onlineFriends: <FriendsList window={window}/>,
     };
+
+    useEffect(() => {
+        if (friendsRequesterCount.current >= 100) {
+            setFriendReqest("99+");
+        } else if (friendsRequesterCount.current > 0) setFriendReqest(friendsRequesterCount.current);
+        else setFriendReqest("");
+    }, [friendsRequesterCount]);
 
     return (
         <div className="text-white min-w-1 w-screen flex">
@@ -28,7 +37,7 @@ const FriendsWindow = (window) => {
                             <Button buttonStyling="rounded m-3 hover:bg-slate-600 relative disabled:bg-blue-950"
                                 styling="p-1 text-gray-400" text={"All"} />
                             <Button buttonStyling="rounded m-3 hover:bg-slate-600 relative disabled:bg-blue-950"
-                                styling="p-1 text-gray-400" text={`In Request ${friendRequestCounter.length > 0 ? friendRequestCounter.length : ''}`} />
+                                styling="p-1 text-gray-400" text={`In Request ${isFriendRequest}`}/>
                             <Button buttonStyling="rounded m-3 hover:bg-slate-600 relative disabled:bg-blue-950"
                                 styling="p-1 text-gray-400" text={"Blocked"} />
                             <Button buttonStyling="rounded m-3 relative bg-green-500 disabled:bg-gray-900"
