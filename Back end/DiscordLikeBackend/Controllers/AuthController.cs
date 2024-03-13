@@ -96,8 +96,7 @@ namespace DiscordLikeBackend.Controllers
 			var checkToken = JwtService.CheckToken(token);
 
 			if (!checkToken.success) return BadRequest("Invalid token!");
-			//if (checkToken.expires)
-			_logger.LogInformation(checkToken.expires.ToString());
+
 			return Ok(checkToken);
 		}
 

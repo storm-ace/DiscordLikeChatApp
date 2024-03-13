@@ -16,7 +16,7 @@ const FriendsWindow = (window) => {
 
     return (
         <div className="text-white min-w-1 w-screen flex">
-            <div className="flex flex-col h-screen bg-gray-900 p-4 w-[75%]">
+            <div className="flex flex-col h-screen bg-gray-900 p-4 w-full">
                 <div className="my-3.5">
                     <div className="grid mx-5 gap-1 text-sm">
                         <div className="flex items-center">
@@ -41,7 +41,7 @@ const FriendsWindow = (window) => {
                 </div>
             </div>
 
-            <div className="bg-gray-800 p-4 flex flex-col flex-grow">
+            <div className="bg-gray-800 p-4 flex flex-col flex-grow w-64">
                 <p className="text-white text-lg font-bold mb-4">Active Online Users</p>
                {/* TODO: add all friends here and those who active online */}
             </div>

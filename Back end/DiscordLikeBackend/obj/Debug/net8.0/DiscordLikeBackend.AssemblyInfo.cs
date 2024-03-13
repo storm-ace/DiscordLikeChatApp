@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DiscordLikeBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+51e0dcc8d2a893f0993f85e2688880b364090e44")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f158f84055e19089dccd188b859b832f67a18aa1")]
 [assembly: System.Reflection.AssemblyProductAttribute("DiscordLikeBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DiscordLikeBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

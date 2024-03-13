@@ -22,7 +22,7 @@ namespace DiscordLikeBackend.Utils
 					new Claim(ClaimTypes.Thumbprint, user.Snowflake.ToString())
 				}),
 				Expires = DateTime.UtcNow.AddHours(1),
-				SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256)
+				SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256),
 			};
 
 			var token = tokenHandler.CreateToken(tokenDescriptor);
@@ -35,17 +35,28 @@ namespace DiscordLikeBackend.Utils
 			{
 				// Decode the token
 				var handler = new JwtSecurityTokenHandler();
-				var jsonToken = handler.ReadToken(token) as JwtSecurityToken;
+				var key = Encoding.ASCII.GetBytes(RsaEncrptionService.GetPrivateKey());
 
-				// Access token claims (long)
-				_ = long.TryParse(jsonToken.Claims.First().Value, out long result);
+				handler.ValidateToken(token, new TokenValidationParameters
+				{
+					ValidateIssuerSigningKey = true,
+					IssuerSigningKey = new SymmetricSecurityKey(key),
+					ValidateIssuer = false,
+					ValidateAudience = false,
+					ClockSkew = TimeSpan.Zero
+				}, out SecurityToken validatedToken);
 				
-				return new TokenResult() 
+				if (validatedToken.ValidFrom > DateTime.UtcNow)
+					return new TokenResult
+					{
+						success = false,
+						error = $"Token is expired at {validatedToken.ValidTo}!"
+					};
+
+				return new TokenResult
 				{
 					success = true,
-					token = token,
-					snowflake = result,
-					expires = (long)jsonToken.Payload.Expiration
+					snowflake = long.Parse((handler.ReadToken(token) as JwtSecurityToken).Claims.First().Value),
 				};
 			}
 			catch (Exception)
@@ -61,9 +72,7 @@ namespace DiscordLikeBackend.Utils
 	public class TokenResult
 	{
 		public bool success = false;
-		public string token { get; set; }
 		public long snowflake { get; set; }
-		public long expires { get; set; }
-		public string error { get; set; }
+		public string? error { get; set; }
 	}
 }
