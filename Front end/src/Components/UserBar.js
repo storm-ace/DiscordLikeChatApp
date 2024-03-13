@@ -4,13 +4,32 @@ import ChatBalloon from "./ChatBalloon";
 import SendBar from "./SendBar";
 
 const UserBar = () => {
- const chatContainerRef = useRef(null);
+    const chatContainerRef = useRef(null);
 
     useEffect(() => {
         if (chatContainerRef.current) {
             chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
         }
-    }, [/*chatBalloons*/]);
+    }, []);
+
+    const generateRandomUsername = () => {
+        const adjectives = ['Happy', 'Funny', 'Clever', 'Silly', 'Smart', 'Cheerful'];
+        const nouns = ['Cat', 'Dog', 'Penguin', 'Dolphin', 'Monkey', 'Elephant'];
+        const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+        const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
+        return `${randomAdjective}${randomNoun}`;
+      };
+
+    const generateRandomMessage = () => {
+        const messages = ['Hello!', 'How are you?', 'Nice to meet you!', 'What\'s up?', 'I\'m coding!', 'React is awesome!'];
+        return messages[Math.floor(Math.random() * messages.length)];
+    };
+
+    const balloons = Array.from({ length: 30 }, (_, index) => ({
+        id: index,
+        username: generateRandomUsername(),
+        message: generateRandomMessage(),
+    }));
 
     return (
         <div className="text-white min-w-1 h-screen w-screen">
@@ -23,7 +42,9 @@ const UserBar = () => {
                 </div>
 
                 <div className="flex-grow flex flex-col overflow-auto overflow-x-hidden scrollbar scrollbar-thumb-gray-700" ref={chatContainerRef}>
-                    
+                    {balloons.map(balloon => (
+                        <ChatBalloon key={balloon.id} username={balloon.username} message={balloon.message} />
+                    ))}
                 </div>
 
                 <div className="flex">
