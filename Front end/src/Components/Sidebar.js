@@ -1,9 +1,7 @@
 import { Popup } from "reactjs-popup";
 import { FaMessage } from "react-icons/fa6";
-import { FaFolder } from "react-icons/fa";
 import { BsPlus } from "react-icons/bs";
-import FriendsPanel from "./FriendsPanel.js"
-import Button from "./Button.js";
+import FriendsPanel from "./Friends/FriendsPanel.js"
 
 const SideBar = ({ window }) => {
     const ChangeWindow = () => {
@@ -12,9 +10,9 @@ const SideBar = ({ window }) => {
 
     return (
         <div className="flex">
-            <div className="flex h-screen flex-col shadow-lg bg-gray-900 text-white w-16">
+            <div className="flex flex-col shadow-lg bg-gray-900 text-white w-16">
                 <button onClick={ChangeWindow}><SideBarIcon icon={<FaMessage size="28" />} text="Direct Messages" /></button>
-                <hr className="h-px my-1 bg-gray-200 dark:bg-gray-700 w-8 self-center" />
+                <hr className="h-px my-1 bg-gray-200 border-gray-600 w-8 self-center" />
                 <Popup trigger={<button>
                     <SideBarIcon icon={<BsPlus size={32} />} text="Add A New Server" /></button>}>
                     <div className="w-screen h-screen fixed">
@@ -32,6 +30,7 @@ const SideBar = ({ window }) => {
                     </div>
                 </Popup>
             </div>
+            
             <FriendsPanel window={window} />
         </div>
     );

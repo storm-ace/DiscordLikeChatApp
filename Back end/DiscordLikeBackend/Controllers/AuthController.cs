@@ -40,6 +40,10 @@ namespace DiscordLikeBackend.Controllers
 			var jwtToken = JwtService.GenerateToken(userInDB);
 			_logger.Log(LogLevel.Information, jwtToken);
 
+			userInDB.State = UserState.Online;
+			_context.Users.Update(userInDB);
+			_context.SaveChanges();
+
 			return Ok(new { Success = true, Token = jwtToken });
 		}
 

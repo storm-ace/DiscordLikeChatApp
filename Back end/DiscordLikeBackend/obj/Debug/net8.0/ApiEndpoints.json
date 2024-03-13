@@ -112,6 +112,54 @@
   },
   {
     "ContainingType": "DiscordLikeBackend.Controllers.FriendsController",
+    "Method": "AcceptFriendRequest",
+    "RelativePath": "api/Friends/AcceptFriendRequest",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "DiscordLikeBackend.Models.FriendModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DiscordLikeBackend.Controllers.FriendsController",
+    "Method": "GetFriends",
+    "RelativePath": "api/Friends/GetFriends",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DiscordLikeBackend.Controllers.FriendsController",
+    "Method": "GetOnlineFriends",
+    "RelativePath": "api/Friends/GetOnlineFriends",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DiscordLikeBackend.Controllers.FriendsController",
     "Method": "SendFriendRequest",
     "RelativePath": "api/Friends/SendFriendRequest",
     "HttpMethod": "POST",
@@ -120,7 +168,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "DiscordLikeBackend.Models.FriendRequestModel",
+        "Type": "DiscordLikeBackend.Models.FriendModel",
         "IsRequired": true
       }
     ],

@@ -11,7 +11,7 @@ const ControlBar = () => {
         <div className='text-cyan-50 bg-gray-900 p-2 overflow-hidden'>
 
             {/* In call div */}
-            <div className="mx-2 my-2 hidden">
+            <div className="mx-2 hidden">
                 <div className="flex text-green-600">
                     <FaSignal size={20} className="mr-3" /><span> Connection</span>
                     <div className="flex ml-auto gap-1">

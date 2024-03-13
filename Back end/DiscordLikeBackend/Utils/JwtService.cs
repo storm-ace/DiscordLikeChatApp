@@ -38,7 +38,7 @@ namespace DiscordLikeBackend.Utils
 				var jsonToken = handler.ReadToken(token) as JwtSecurityToken;
 
 				// Access token claims (long)
-				long.TryParse(jsonToken.Claims.First().Value, out long result);
+				_ = long.TryParse(jsonToken.Claims.First().Value, out long result);
 
 				return new TokenResult() 
 				{

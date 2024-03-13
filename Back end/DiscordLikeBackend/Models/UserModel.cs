@@ -21,12 +21,12 @@ namespace DiscordLikeBackend.Models
 		/// <summary>
 		/// User's username.
 		/// </summary>
-		public string? Username { get; set; }
+		public required string Username { get; set; }
 
 		/// <summary>
 		/// User's password.
 		/// </summary>
-		public string? Password { get; set; }
+		public required string Password { get; set; }
 
 		/// <summary>
 		/// List of friend user IDs.

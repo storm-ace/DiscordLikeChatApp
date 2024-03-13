@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import SideBar from './Components/Sidebar';
 import UserBar from './Components/UserBar';
-import FriendsWindow from './Components/FriendsWindow';
+import FriendsWindow from './Components/Friends/FriendsWindow';
 import LoginPanel from './Components/LoginPanel';
 
 const App = () => {
@@ -66,11 +66,14 @@ const App = () => {
     );
   } else {
     return (
-      <div className="flex">
-        <SideBar window={handleChangeWindow} />
-        {components[window]}
+      <div className="h-screen overflow-hidden">
+        <div className="bg-gray-950 h-4 w-full"><h2 className="text-gray-700 font-bold text-xs px-3">Chat app</h2></div>
+        <div className="flex h-full pb-[1rem]">
+          <SideBar className="pb-5" window={handleChangeWindow} />
+          {components[window]}
+        </div>
       </div>
-    );
+    );    
   }
 }
 

@@ -1,8 +1,9 @@
-const Button = ({listener, icon, text, styling}) => {
+const Button = ({ listener, icon, text, isDisabled, buttonStyling, styling }) => {
     return (
         <button
-        onClick={listener}
-            className="rounded m-3 cursor-pointer hover:bg-slate-600 relative">
+            disabled={isDisabled}
+            onClick={listener}
+            className={buttonStyling}>
             <div className="flex justify-between items-center">
                 <div className="inline-flex items-center">
                     <div className="text-gray-500">{icon}</div>
