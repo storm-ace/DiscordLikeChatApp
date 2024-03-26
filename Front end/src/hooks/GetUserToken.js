@@ -2,7 +2,10 @@ export function GetUserToken(sessionData) {
     sessionData = JSON.parse(localStorage.getItem("authenticated"));
 
     if (sessionData) {
-        sessionData = sessionData[0];
+        if (sessionData.token === null) {
+            localStorage.removeItem("authenticated");
+            return;
+        } 
 
         const url = `https://localhost:7029/api/Auth/loginWithToken?token=${sessionData.token}`;
 
@@ -17,7 +20,7 @@ export function GetUserToken(sessionData) {
             .catch(error => {
                 console.error('Error:', error);
                 localStorage.removeItem("authenticated");
-                throw error; // Re-throw the error to handle it in the calling code
+                return;
             });
     } else {
         // Return a rejected Promise if sessionData is not available

@@ -13,7 +13,6 @@ namespace DiscordLikeBackend.Utils
 		public static string GenerateToken(UserModel user)
 		{
 			JwtSecurityTokenHandler tokenHandler = new();
-			byte[] key = Encoding.ASCII.GetBytes(RsaEncrptionService.GetPrivateKey());
 
 			SecurityTokenDescriptor tokenDescriptor = new()
 			{
@@ -22,7 +21,7 @@ namespace DiscordLikeBackend.Utils
 					new Claim(ClaimTypes.Thumbprint, user.Snowflake.ToString())
 				}),
 				Expires = DateTime.UtcNow.AddHours(1),
-				SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256),
+				SigningCredentials = new SigningCredentials(RsaEncrptionService._securityKey, SecurityAlgorithms.RsaSha256),
 			};
 
 			var token = tokenHandler.CreateToken(tokenDescriptor);
@@ -35,12 +34,12 @@ namespace DiscordLikeBackend.Utils
 			{
 				// Decode the token
 				var handler = new JwtSecurityTokenHandler();
-				var key = Encoding.ASCII.GetBytes(RsaEncrptionService.GetPrivateKey());
+				var key = RsaEncrptionService._securityKey;
 
 				handler.ValidateToken(token, new TokenValidationParameters
 				{
 					ValidateIssuerSigningKey = true,
-					IssuerSigningKey = new SymmetricSecurityKey(key),
+					IssuerSigningKey = key,
 					ValidateIssuer = false,
 					ValidateAudience = false,
 					ClockSkew = TimeSpan.Zero

@@ -28,11 +28,11 @@ namespace DiscordLikeBackend.Controllers
 
 			var checkToken = JwtService.CheckToken(model.Token);
 
-			if (!checkToken.success) return BadRequest("Token expired.");
+			if (!checkToken.success) return BadRequest(checkToken.error);
 
 			UserModel? user = _context.Users.Where(userDB => userDB.Snowflake == checkToken.snowflake).SingleOrDefault();
 
-			if (user == null) return BadRequest("Token expired.");
+			if (user == null) return BadRequest(checkToken.error);
 
 			UserModel? friend = _context.Users.Where(userDB => userDB.Username == model.FriendName).SingleOrDefault();
 
@@ -56,11 +56,11 @@ namespace DiscordLikeBackend.Controllers
 
 			var checkToken = JwtService.CheckToken(model.Token);
 
-			if (!checkToken.success) return BadRequest("Token expired.");
+			if (!checkToken.success) return BadRequest(checkToken.error);
 
 			UserModel? user = _context.Users.Where(userDB => userDB.Snowflake == checkToken.snowflake).SingleOrDefault();
 
-			if (user == null) return BadRequest("Token expired.");
+			if (user == null) return BadRequest(checkToken.error);
 
 			return Ok(user);
 		}
@@ -70,11 +70,11 @@ namespace DiscordLikeBackend.Controllers
 		{
 			var checkToken = JwtService.CheckToken(token);
 
-			if (!checkToken.success) return BadRequest("Token expired.");
+			if (!checkToken.success) return BadRequest(checkToken.error);
 
 			UserModel? user = _context.Users.Where(userDB => userDB.Snowflake == checkToken.snowflake).SingleOrDefault();
 
-			if (user == null) return BadRequest("Token expired.");
+			if (user == null) return BadRequest(checkToken.error);
 
 			List<FriendResponse> friendsList = new();
 
@@ -99,11 +99,11 @@ namespace DiscordLikeBackend.Controllers
 		{
 			var checkToken = JwtService.CheckToken(token);
 
-			if (!checkToken.success) return BadRequest("Token expired.");
+			if (!checkToken.success) return BadRequest(checkToken.error);
 
 			UserModel? user = _context.Users.Where(userDB => userDB.Snowflake == checkToken.snowflake).SingleOrDefault();
 
-			if (user == null) return BadRequest("Token expired.");
+			if (user == null) return BadRequest(checkToken.error);
 
 			List<FriendResponse> friendsList = new();
 

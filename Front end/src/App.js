@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import SideBar from './Components/Sidebar';
 import UserBar from './Components/UserBar';
 import FriendsWindow from './Components/Friends/FriendsWindow';
-import LoginPanel from './Components/LoginPanel';
+import LoginPanel from './Components/Auth/LoginPanel';
 import { GetUserToken } from './hooks/GetUserToken';
 
 const App = () => {
@@ -10,6 +10,8 @@ const App = () => {
   const [window, setWindow] = useState("chat");
 
   const handleChangeAuth = (newAuthenticated) => {
+    console.log(newAuthenticated);
+    localStorage.setItem("authenticated", JSON.stringify(newAuthenticated));
     setAuthenticated((prevAuthenticated) => {
       return { ...prevAuthenticated, ...newAuthenticated }
     });
@@ -27,12 +29,15 @@ const App = () => {
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("authenticated"))) {
       GetUserToken().then(data => {
-        if (data === null) return;
+        if (data === null) {
+          setAuthenticated("");
+          return;
+        }
 
         setAuthenticated(data);
       });
     }
-  }, [authenticated.token]);
+  }, []);
 
   if (authenticated === "") {
     return (

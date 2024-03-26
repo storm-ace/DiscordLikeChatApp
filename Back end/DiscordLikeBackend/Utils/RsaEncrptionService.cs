@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using Microsoft.IdentityModel.Tokens;
+using System.Security.Cryptography;
 using System.Text;
 using System.Xml.Serialization;
 
@@ -6,15 +7,23 @@ namespace DiscordLikeBackend.Utils
 {
 	public class RsaEncrptionService
 	{
+		internal static RsaSecurityKey _securityKey;
 		private static RSACryptoServiceProvider _csp = new(2048);
 		private static RSAParameters _rsaPrivateKey;
 		private static RSAParameters _rsaPublicKey;
 
 		public RsaEncrptionService()
         {
+			if (Directory.Exists("keys"))
+			{
+				var keys = Directory.GetFiles("keys");
+				
+			}
+
 			_rsaPrivateKey = _csp.ExportParameters(true);
 			_rsaPublicKey = _csp.ExportParameters(false);
-        }
+			_securityKey = new(_rsaPrivateKey);
+		}
 
 		public static string GetPublicKey()
 		{

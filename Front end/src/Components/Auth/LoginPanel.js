@@ -1,45 +1,21 @@
 import { useState } from 'react';
+import { UserLogin } from '../../hooks/LoginUser';
 
-const LoginPanel = (props) => {
+const LoginPanel = ({onChangeAuth}) => {
     const [username, setusername] = useState("");
     const [password, setpassword] = useState("");
     const [isErrorVisible, setIsErrorVisible] = useState("hidden");
     const [iserrorText, setIsErrorText] = useState("Could not connect the server!");
-
+    
     const handleSubmit = (e) => {
         e.preventDefault();
-        UserLogin();
+        LoginBtn();
     };
 
-    const UserLogin = async () => {
-        try {
-            const response = await fetch("https://localhost:7029/api/Auth/login", {
-                method: "POST",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    username: username,
-                    password: password
-                }),
-            });
+    const LoginBtn = () => {
+        const loginData = {username, password};
 
-            const data = await response.json();
-
-            if (response.ok) {
-                const token = data.token;
-                const updatedAccount = [{ username: username, token: token }];
-                props.onChangeAuth(updatedAccount);
-                localStorage.setItem("authenticated", JSON.stringify(updatedAccount));
-            } else {
-                setIsErrorVisible("visible");
-                setIsErrorText(data);
-            }
-        } catch (error) {
-            console.error('Error during login:', error);
-            setIsErrorVisible("visible");
-        }
+        UserLogin(loginData, onChangeAuth);
     }
 
     return (

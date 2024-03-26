@@ -15,7 +15,6 @@ const FriendsPanel = (window) => {
         try {
             let sessionData = JSON.parse(localStorage.getItem("authenticated"));
             if (sessionData) {
-                sessionData = sessionData[0];
                 const url = `https://localhost:7029/api/Friends/GetFriends?token=${sessionData.token}`;
 
                 fetch(url)

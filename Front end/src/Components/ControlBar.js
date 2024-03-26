@@ -3,12 +3,18 @@ import { IoIosRadio } from "react-icons/io";
 import { FaPhoneSlash, FaGear } from "react-icons/fa6";
 import { IoHeadset } from "react-icons/io5";
 import logo from "../logo.svg";
+import App from "../App";
 
 const ControlBar = () => {
-    const username = JSON.parse(localStorage.getItem("authenticated"))[0].username;
+    const data = JSON.parse(localStorage.getItem("authenticated"));
+
+    if (data === null) {
+        localStorage.removeItem("authenticated");
+        window.location.reload();
+    }
 
     return (
-        <div className='text-cyan-50 bg-gray-900 p-2 overflow-hidden'>
+        <div className='text-cyan-50 bg-gray-950 p-2 overflow-hidden'>
 
             {/* In call div */}
             <div className="mx-2 hidden">
@@ -26,7 +32,7 @@ const ControlBar = () => {
             <div className="flex gap-1">
                 <img src={logo} alt="?" width={32} />
                 <div className="grid">
-                    <span className="text-s">{username}</span>
+                    <span className="text-s">{data.username}</span>
                     <span className="text-gray-500 text-xs">User status</span>
                 </div>
                 <div className="flex ml-auto gap-1">

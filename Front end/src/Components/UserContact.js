@@ -2,7 +2,7 @@ import logo from "../logo.svg";
 import { FaCircle } from "react-icons/fa";
 import { useState } from "react";
 
-const UserContact = ({ key, username, state, setWindow }) => {
+const UserContact = ({ username, state, setWindow }) => {
     const [isHovered, setIsHovered] = useState(false);
 
     const onlineColor = {

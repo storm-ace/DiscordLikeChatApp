@@ -26,10 +26,10 @@ const UserBar = () => {
     };
 
     const balloons = Array.from({ length: 30 }, (_, index) => ({
-        id: index,
+        key: index,
         username: generateRandomUsername(),
         message: generateRandomMessage(),
-    }));
+    }));    
 
     return (
         <div className="text-white min-w-1 h-screen w-screen">
@@ -43,7 +43,7 @@ const UserBar = () => {
 
                 <div className="flex-grow flex flex-col overflow-auto overflow-x-hidden scrollbar scrollbar-thumb-gray-700" ref={chatContainerRef}>
                     {balloons.map(balloon => (
-                        <ChatBalloon key={balloon.id} username={balloon.username} message={balloon.message} />
+                        <ChatBalloon key={balloon.key} username={balloon.username} message={balloon.message} />
                     ))}
                 </div>
 
